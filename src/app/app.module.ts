@@ -44,11 +44,12 @@ import { baseURL } from '../shared/baseurl';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    { provide: 'BaseURL', useValue: baseURL },
     DishProvider,
     LeaderProvider,
     PromotionProvider,
-    ProcessHttpmsgProvider
+    ProcessHttpmsgProvider,
+    { provide: 'BaseURL', useValue: baseURL },
+
   ]
 })
 export class AppModule {}

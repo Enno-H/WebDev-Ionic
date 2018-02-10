@@ -13,11 +13,11 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class ProcessHttpmsgProvider {
 
-  constructor(public http: HttpClient) {
+  constructor(public http: Http) {
     console.log('Hello ProcessHttpmsgProvider Provider');
   }
 
-  public extractData(res: Response){
+  public extractData(res: Response) {
     let body = res.json();
     return body || { };
   }
@@ -35,5 +35,4 @@ export class ProcessHttpmsgProvider {
     console.error(errMsg);
     return Observable.throw(errMsg);
   }
-
 }
