@@ -18,6 +18,7 @@ import { ProcessHttpmsgProvider } from '../providers/process-httpmsg/process-htt
 
 import { HttpModule } from '@angular/http';
 import { baseURL } from '../shared/baseurl';
+import { FavoriteProvider } from '../providers/favorite/favorite';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { baseURL } from '../shared/baseurl';
     PromotionProvider,
     ProcessHttpmsgProvider,
     { provide: 'BaseURL', useValue: baseURL },
+    FavoriteProvider,
 
   ]
 })
