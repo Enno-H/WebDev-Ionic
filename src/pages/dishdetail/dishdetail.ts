@@ -1,7 +1,8 @@
 import { Component, Inject } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';import { Dish } from '../../shared/dish';
+import { IonicPage, NavController, NavParams, ToastController, ActionSheetController, ModalController } from 'ionic-angular';import { Dish } from '../../shared/dish';
 import { Comment } from '../../shared/comment';
 import { FavoriteProvider } from '../../providers/favorite/favorite';
+import { CommentPage } from '../comment/comment';
 
 
 /**
@@ -26,7 +27,9 @@ export class DishdetailPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     @Inject('BaseURL') private BaseURL,
     private favoriteservice: FavoriteProvider,
-    private toastCtrl: ToastController) {
+    private toastCtrl: ToastController,
+    private actionSheetCtrl: ActionSheetController,
+    private modalCtrl: ModalController) {
     this.dish = navParams.get('dish');
     this.favorite = favoriteservice.isFavorite(this.dish.id);
     this.numcomments = this.dish.comments.length;
@@ -44,8 +47,47 @@ export class DishdetailPage {
       duration: 3000}).present();
   }
 
+  addComment() {
+    console.log('Comment clicked');
+    let modal = this.modalCtrl.create(CommentPage);
+            modal.present();
+            modal.onDidDismiss((data, role) => {
+              if(role != 'cancel')
+                this.dish.comments.push(data);
+            })
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad DishdetailPage');
+  }
+
+  presentActionSheet() {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Select Actions',
+      buttons: [
+        {
+          text: 'Add to Favorites',
+          role: 'destructive',
+          handler: () => {
+            console.log('Adding to Favorites');
+            this.addToFavorites();
+          }
+        },{
+          text: 'Add Comment',
+          handler: () => {
+            console.log('Comment clicked');
+            this.addComment();
+          }
+        },{
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
   }
 
 }
