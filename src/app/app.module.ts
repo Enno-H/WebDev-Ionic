@@ -26,6 +26,9 @@ import { FavoriteProvider } from '../providers/favorite/favorite';
 
 import { IonicStorageModule } from '@ionic/storage';
 
+import { LocalNotifications } from '@ionic-native/local-notifications';
+
+
 
 @NgModule({
   declarations: [
@@ -67,6 +70,7 @@ import { IonicStorageModule } from '@ionic/storage';
     LeaderProvider,
     PromotionProvider,
     ProcessHttpmsgProvider,
+    LocalNotifications,
     { provide: 'BaseURL', useValue: baseURL },
     FavoriteProvider,
 
