@@ -28,6 +28,8 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { EmailComposer } from '@ionic-native/email-composer';
+import { SocialSharing } from '@ionic-native/social-sharing';
+
 
 
 
@@ -75,7 +77,8 @@ import { EmailComposer } from '@ionic-native/email-composer';
     LocalNotifications,
     { provide: 'BaseURL', useValue: baseURL },
     FavoriteProvider,
-    EmailComposer
+    EmailComposer,
+    SocialSharing
   ]
 })
 export class AppModule {}
