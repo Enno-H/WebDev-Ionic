@@ -27,6 +27,8 @@ import { FavoriteProvider } from '../providers/favorite/favorite';
 import { IonicStorageModule } from '@ionic/storage';
 
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { EmailComposer } from '@ionic-native/email-composer';
+
 
 
 
@@ -73,7 +75,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     LocalNotifications,
     { provide: 'BaseURL', useValue: baseURL },
     FavoriteProvider,
-
+    EmailComposer
   ]
 })
 export class AppModule {}
