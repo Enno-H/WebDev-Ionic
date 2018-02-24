@@ -33,17 +33,13 @@
       </address>
     </ion-card-content>
     <ion-row>
-      <ion-col>
-        <a ion-button clear href="tel:+85212345678">
-          <ion-icon name="call"></ion-icon>CALL</a>
-      </ion-col>
-      <ion-col>
-          <button ion-button icon-left clear small (click)="sendEmail()">
-          <ion-icon name="mail"></ion-icon>
-          <div>EMAIL</div>
-          </button>
-      </ion-col>
-    </ion-row>
+        <ion-col>
+          <button ion-button icon-left clear small (click)="callRestaurant()"><ion-icon name="call"></ion-icon>CALL</button>
+        </ion-col>
+        <ion-col>
+            <button ion-button icon-left clear small (click)="sendEmail()"><ion-icon name="mail"></ion-icon>EMAIL</button>
+        </ion-col>
+      </ion-row>
   </ion-card>
 
 </ion-content>
